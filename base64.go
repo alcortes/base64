@@ -9,6 +9,7 @@ const caracteres string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0
 
 func Codifica(original string) (resultado string) {
 	f := []byte{3, 240, 15, 192}
+	original = strings.TrimSpace(original)
 	base := []byte(original)
 	resultado = ""
 	total := len(base) 
@@ -48,6 +49,7 @@ func Decodifica(codificada string) (resultado string, err error){
 	f2 := []int{48, 15, 60, 3}
 	resultado = ""
 	var indices = make([]uint8, 0)
+	codificada = strings.TrimSpace(codificada)
 	total := len(codificada)
 	if total%4 != 0{
 		return
